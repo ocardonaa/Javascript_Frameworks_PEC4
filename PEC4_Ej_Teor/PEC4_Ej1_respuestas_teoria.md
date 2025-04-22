@@ -1,0 +1,12 @@
+- ng new: crea un nuevo espacio de trabajo para angular.
+- ng generate: genera / modifica ficheros basados en un esquema.
+    - component: crea un nuevo componente.
+    - directive: crea una nueva directiva para el proyecto. Para ello crea los archivos necesarios para que funcione. Esto amplia sus funcionalidades ya que no usa una directiva existente ya en el propio angular sino que se puede crear una nueva con más funcionalidades y necesidades del programador, aumentando la extensibilidad del código.
+    - enum: crea un nuevo enum en el proyecto, usado para definir constantes con nombre.
+    - guard: crea un guard, usado para implementar varias interfaces.
+    - interface: crea una nueva interficie en el proyecto, que define mejor la estructura de objetos en TypeScript.
+    - pipe: crea una nueva pipe, usada para transformar datos de modo que ahora se muestren por pantalla de una mejor forma, como por ejemplo fechas o divisas.
+    - service: crea un nuevo servicio, lo que facilita el reutilizar código.
+- ng serve: compila y situa en un servidor local la aplicación.
+- ng test: ejecuta todos los tests unitarios.
+- ng version: imprime por terminal la versión en la que estamos de Angular.
