@@ -1,0 +1,12 @@
+<div class="article-container" [ngClass]="article.isOnSale ? 'available' : 'unavailable'">
+    <div class="name">
+        <h3>{{article.name}}</h3>
+    </div>
+    <div class="image"><img src={{article.imageUrl}}></div>
+    <div class="price">{{article.price}}$</div>
+    <div class="quantity">
+        <button class="minus" (click)="decrementUnits()">-</button>
+        <h3 class="quantity-text">{{article.quantityInCart}}</h3>
+        <button class="plus" (click)="incrementUnits()">+</button>
+    </div>
+</div>
