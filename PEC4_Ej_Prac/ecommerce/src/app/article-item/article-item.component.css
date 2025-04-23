@@ -11,11 +11,19 @@
 }
 
 .available {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 .unavailable {
-    background-color: red;
+    background-color: lightcoral;
+}
+
+.available-price {
+    color: black;
+}
+
+.unavailable-price {
+    color: gray;
 }
 
 .quantity, .quantity-text {
