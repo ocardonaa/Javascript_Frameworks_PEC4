@@ -15,10 +15,10 @@ export class ArticleItemComponent implements OnInit {
   @Input() article: Article;
   @Output() emitQuantityChange = new EventEmitter<ArticleQuantityChange>();
 
-  emitData() {
+  emitData(quantity: number) {
     const data: ArticleQuantityChange = {
       article: this.article,
-      units: this.article.quantityInCart
+      units: this.article.quantityInCart + quantity
     };
     this.emitQuantityChange.emit(data);
   }
@@ -35,15 +35,5 @@ export class ArticleItemComponent implements OnInit {
       'available-price': this.article.isOnSale,
       'unavailable-price': !this.article.isOnSale
     }
-  }
-
-  incrementUnits() {
-    this.article.incrementUnits();
-    this.emitData();
-  }
-
-  decrementUnits() {
-    this.article.decrementUnits();
-    this.emitData();
   }
 }
