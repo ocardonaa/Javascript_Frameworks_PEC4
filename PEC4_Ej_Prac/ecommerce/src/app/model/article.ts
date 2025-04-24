@@ -6,14 +6,4 @@ export class Article {
         public quantityInCart: number) {
 
     }
-
-    incrementUnits() {
-        this.quantityInCart++;
-    }
-
-    decrementUnits() {
-        if (this.quantityInCart !== 0) {
-            this.quantityInCart--;
-        }
-    }
 }
