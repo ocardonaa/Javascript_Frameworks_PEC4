@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Article } from '../model/article';
+import { ArticleQuantityChange } from '../model/ArticleQuantityChange';
 
 @Component({
   selector: 'app-article-item',
@@ -8,16 +9,24 @@ import { Article } from '../model/article';
 })
 export class ArticleItemComponent implements OnInit {
 
-  public article: Article;
   public articleClasses;
   public priceClasses;
 
+  @Input() article: Article;
+  @Output() emitQuantityChange = new EventEmitter<ArticleQuantityChange>();
+
+  emitData() {
+    const data: ArticleQuantityChange = {
+      article: this.article,
+      units: this.article.quantityInCart
+    };
+    this.emitQuantityChange.emit(data);
+  }
   constructor() {
 
   }
 
   ngOnInit() {
-    this.article = new Article('Ball', 'https://media.istockphoto.com/id/91712739/es/foto/pelota-de-f%C3%BAtbol.jpg?s=612x612&w=0&k=20&c=YTrM0cjnsDMBagE47GTiHxDtE00Mb3v27jvD_yyxyfk=', 10, true, 1);
     this.articleClasses = {
       'available': this.article.isOnSale,
       'unavailable': !this.article.isOnSale
@@ -30,9 +39,11 @@ export class ArticleItemComponent implements OnInit {
 
   incrementUnits() {
     this.article.incrementUnits();
+    this.emitData();
   }
 
   decrementUnits() {
     this.article.decrementUnits();
+    this.emitData();
   }
 }
